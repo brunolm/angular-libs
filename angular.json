@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "ngx-redux-state-props": {
+      "root": "projects/ngx-redux-state-props",
+      "sourceRoot": "projects/ngx-redux-state-props/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-redux-state-props/tsconfig.lib.json",
+            "project": "projects/ngx-redux-state-props/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-redux-state-props/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-redux-state-props/src/test.ts",
+            "tsConfig": "projects/ngx-redux-state-props/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-redux-state-props/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-redux-state-props/tsconfig.lib.json",
+              "projects/ngx-redux-state-props/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "libs"
