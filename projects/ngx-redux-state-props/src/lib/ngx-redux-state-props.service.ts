@@ -15,12 +15,20 @@ export class NgxReduxStatePropsService implements OnDestroy {
   private linkStateToProp: Subscription;
 
   constructor() {
+    if (!this.appState$) {
+      return;
+    }
+
     this.linkStateToProp = this.appState$.subscribe((state = {}) => {
       this.appState = state;
     });
   }
 
   ngOnDestroy() {
+    if (!this.appState$) {
+      return;
+    }
+
     this.linkStateToProp.unsubscribe();
   }
 }
