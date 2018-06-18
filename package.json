@@ -13,7 +13,10 @@
     "ngx-redux-state-props:publish": "npm publish dist/ngx-redux-state-props",
     "ngx-redux-state-props:all": "npm run ngx-redux-state-props:patch && npm run ngx-redux-state-props:build && npm run ngx-redux-state-props:publish"
   },
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunolm/angular-libs.git"
+  },
   "dependencies": {
     "@angular-redux/store": "^9.0.0",
     "@angular/animations": "^6.0.3",
