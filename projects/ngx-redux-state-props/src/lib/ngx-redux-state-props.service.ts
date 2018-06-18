@@ -6,11 +6,11 @@ import { Observable, Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class NgxReduxStatePropsService implements OnDestroy {
+export class NgxReduxStatePropsService<T> implements OnDestroy {
   @select((state) => state)
-  appState$: Observable<any>;
+  appState$: Observable<T>;
 
-  appState: any = {};
+  appState: T = {} as any;
 
   private linkStateToProp: Subscription;
 
@@ -19,7 +19,7 @@ export class NgxReduxStatePropsService implements OnDestroy {
       return;
     }
 
-    this.linkStateToProp = this.appState$.subscribe((state = {}) => {
+    this.linkStateToProp = this.appState$.subscribe((state = {} as any) => {
       this.appState = state;
     });
   }
